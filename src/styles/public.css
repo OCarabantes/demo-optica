@@ -1,0 +1,214 @@
+/* Estilos dedicados para la vista Pública (Vitrina Web) */
+/* Usa mucha luz, espacio en blanco y un color de acento limpio (Verde Menta/Azul Clínico) */
+
+:root {
+    --color-public-primary: #0f172a;
+    /* Negro suave/Midnight blue para headers/textos */
+    --color-public-accent: #2dd4bf;
+    /* Teal/Verde Menta brillante como CTO */
+    --color-public-accent-hover: #14b8a6;
+    --color-public-bg: #ffffff;
+    --color-public-bg-alt: #f8fafc;
+    --color-public-text: #334155;
+    --color-public-text-light: #64748b;
+    --color-public-border: #e2e8f0;
+}
+
+.public-layout {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--color-public-bg);
+    color: var(--color-public-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Sticky */
+.public-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-public-border);
+    padding: 1.25rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.public-nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.public-nav-link {
+    color: var(--color-public-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    position: relative;
+}
+
+.public-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-public-primary);
+    transition: width 0.3s ease;
+}
+
+.public-nav-link:hover::after,
+.public-nav-link.active::after {
+    width: 100%;
+}
+
+.public-nav-link.sale {
+    color: #ef4444;
+}
+
+.public-nav-link.sale::after {
+    background-color: #ef4444;
+}
+
+.public-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.public-icon-btn {
+    color: var(--color-public-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.public-icon-btn:hover {
+    transform: scale(1.1);
+}
+
+.public-btn-accent {
+    background-color: var(--color-public-accent);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    /* Botones muy redondeados */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.public-btn-accent:hover {
+    background-color: var(--color-public-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+}
+
+.public-btn-dark {
+    background-color: var(--color-public-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.public-btn-dark:hover {
+    background-color: #000;
+}
+
+.public-btn-outline {
+    background-color: transparent;
+    color: var(--color-public-primary);
+    border: 1px solid var(--color-public-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.public-btn-outline:hover {
+    background-color: var(--color-public-primary);
+    color: white;
+}
+
+/* Chat Widget Flotante */
+.chat-widget-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-public-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+}
+
+.chat-widget-btn:hover {
+    transform: scale(1.1);
+}
+
+.chat-widget-popup {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    width: 320px;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform-origin: bottom right;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* General Modifiers */
+.container-public {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    width: 100%;
+}
+
+.section-padding {
+    padding: 6rem 0;
+}
