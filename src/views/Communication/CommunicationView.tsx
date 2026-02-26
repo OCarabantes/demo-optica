@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Send, Paperclip, MoreVertical, Phone, Video, Check, CheckCheck } from 'lucide-react';
+import { Search, Send, Paperclip, MoreVertical, Phone, Video, CheckCheck } from 'lucide-react';
 
 export const CommunicationView: React.FC = () => {
     const [activeChat, setActiveChat] = useState(1);
